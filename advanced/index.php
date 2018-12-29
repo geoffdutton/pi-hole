@@ -315,33 +315,38 @@ setHeader();
 
 <script>
   function add() {
-    $("#bpOutput").removeClass("hidden error exception");
-    $("#bpOutput").addClass("add");
+    // Cache it
+    var $bpOutput = $("#bpOutput");
+
+    $bpOutput.removeClass("hidden error exception");
+    $bpOutput.addClass("add");
     var domain = "<?=$serverName ?>";
     var pw = $("#bpWLPassword");
     if(domain.length === 0) {
       return;
     }
+
     $.ajax({
       url: "/admin/scripts/pi-hole/php/add.php",
       method: "post",
       data: {"domain":domain, "list":"white", "pw":pw.val()},
       success: function(response) {
+
         if(response.indexOf("Pi-hole blocking") !== -1) {
           setTimeout(function(){window.location.reload(1);}, 10000);
-          $("#bpOutput").removeClass("add");
-          $("#bpOutput").addClass("success");
-          $("#bpOutput").html("");
+          $bpOutput.removeClass("add");
+          $bpOutput.addClass("success");
+          $bpOutput.html("");
         } else {
-          $("#bpOutput").removeClass("add");
-          $("#bpOutput").addClass("error");
-          $("#bpOutput").html(""+response+"");
+          $bpOutput.removeClass("add");
+          $bpOutput.addClass("error");
+          $bpOutput.html(""+response+"");
         }
       },
       error: function(jqXHR, exception) {
-        $("#bpOutput").removeClass("add");
-        $("#bpOutput").addClass("exception");
-        $("#bpOutput").html("");
+        $bpOutput.removeClass("add");
+        $bpOutput.addClass("exception");
+        $bpOutput.html("");
       }
     });
   }
