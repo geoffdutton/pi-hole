@@ -229,10 +229,10 @@ setHeader();
   <?=$viewPort ?>
   <meta name="robots" content="noindex,nofollow"/>
   <meta http-equiv="x-dns-prefetch-control" content="off">
-  <link rel="shortcut icon" href="<?=$proto ?>://pi.hole/admin/img/favicon.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="<?=$proto ?>://pi.hole/pihole/blockingpage.css" type="text/css"/>
+  <link rel="shortcut icon" href="/admin/img/favicon.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="/pihole/blockingpage.css" type="text/css"/>
   <title>● <?=$serverName ?></title>
-  <script src="<?=$proto ?>://pi.hole/admin/scripts/vendor/jquery.min.js"></script>
+  <script src="/admin/scripts/vendor/jquery.min.js"></script>
   <script>
     window.onload = function () {
       <?php
@@ -267,7 +267,7 @@ setHeader();
   <input id="bpAboutToggle" type="checkbox"/>
   <div id="bpAbout">
     <div class="aboutPH">
-      <div class="aboutImg"/></div>
+      <div class="aboutImg"></div>
       <p>Open Source Ad Blocker
         <small>Designed for Raspberry Pi</small>
       </p>
